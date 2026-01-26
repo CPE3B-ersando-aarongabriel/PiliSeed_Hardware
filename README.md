@@ -19,11 +19,9 @@
 - [Software Requirements](#-software-requirements)
 - [Installation & Setup](#-installation--setup)
 - [Configuration](#-configuration)
-- [Security](#-security)
 - [Usage](#-usage)
 - [API Integration](#-api-integration)
 - [Troubleshooting](#-troubleshooting)
-- [Documentation Standards](#-documentation-standards)
 - [Contributing](#-contributing)
 - [License](#-license)
 - [Authors](#-authors)
@@ -357,8 +355,6 @@ Open Arduino IDE and install each library:
 
 ### Step 4: Configure Credentials
 
-> ⚠️ **Security Note**: Never commit sensitive credentials to version control!
-
 This project uses a separate `config.h` file for credentials that is **gitignored** by default.
 
 1. **Copy the example configuration file**:
@@ -470,53 +466,6 @@ If you need to use different pins, modify these definitions:
 #define SCREEN_HEIGHT 64   // OLED height in pixels
 #define OLED_RESET -1      // Reset pin (-1 if sharing Arduino reset)
 ```
-
----
-
-## � Security
-
-### Credential Management Best Practices
-
-This project implements secure credential management to protect sensitive information:
-
-#### ✅ What's Protected
-
-| Credential Type | Storage Location | Git Status    |
-| --------------- | ---------------- | ------------- |
-| WiFi SSID       | `config.h`       | ❌ Gitignored |
-| WiFi Password   | `config.h`       | ❌ Gitignored |
-| Sensor ID       | `config.h`       | ❌ Gitignored |
-| API URL         | `config.h`       | ❌ Gitignored |
-
-#### 🛡️ Security Measures Implemented
-
-1. **Separate Configuration File**: All credentials are stored in `config.h`, isolated from main code
-2. **Gitignore Protection**: `config.h` is listed in `.gitignore` to prevent accidental commits
-3. **Template File**: `config.h.example` provides a safe template without real credentials
-4. **No Hardcoded Secrets**: Main code (`Main.ino`) contains no sensitive information
-
-#### ⚠️ Important Security Guidelines
-
-```
-DO:
-✅ Keep config.h private and never share it
-✅ Use strong, unique WiFi passwords
-✅ Regularly rotate credentials if compromised
-✅ Verify config.h is gitignored before pushing
-
-DON'T:
-❌ Commit config.h to version control
-❌ Share screenshots showing credentials
-❌ Use the same password across multiple networks
-❌ Store credentials in Main.ino or other tracked files
-```
-
-#### 🔄 If Credentials Are Accidentally Exposed
-
-1. **Immediately change** your WiFi password
-2. **Regenerate** your sensor ID from the PiliSeed backend
-3. **Check git history** and remove any commits containing credentials
-4. **Consider using** `git filter-branch` or BFG Repo-Cleaner to purge history
 
 ---
 
@@ -670,89 +619,6 @@ http.setTimeout(120000);  // 120 seconds
 
 ---
 
-## 📚 Documentation Standards
-
-This README follows industry-standard documentation practices. Here's what makes professional documentation:
-
-### 1. **Structure & Organization**
-
-```
-✅ Clear table of contents with anchor links
-✅ Logical section ordering (Overview → Setup → Usage → Troubleshooting)
-✅ Consistent heading hierarchy (H1 → H2 → H3)
-✅ Related information grouped together
-```
-
-### 2. **Essential Sections**
-
-| Section                  | Purpose                                 |
-| ------------------------ | --------------------------------------- |
-| **Title & Badges**       | Quick project identification and status |
-| **Overview/Description** | What the project does and why           |
-| **Features**             | Key capabilities at a glance            |
-| **Requirements**         | Hardware/software prerequisites         |
-| **Installation**         | Step-by-step setup guide                |
-| **Configuration**        | Customization options                   |
-| **Usage**                | How to operate the system               |
-| **API Documentation**    | For projects with APIs                  |
-| **Troubleshooting**      | Common issues and solutions             |
-| **Contributing**         | How others can help                     |
-| **License**              | Legal usage terms                       |
-| **Authors/Contact**      | Who to reach out to                     |
-
-### 3. **Formatting Best Practices**
-
-```markdown
-# Use headers for navigation (H1 for title only)
-
-## Major sections use H2
-
-### Subsections use H3
-
-- Use bullet points for lists
-- Use numbered lists for sequential steps
-- Use tables for structured data comparison
-
-`Inline code` for commands, file names, and variables
-```
-
-```
-Code blocks for multi-line code examples
-```
-
-> Blockquotes for important notes or warnings
-
-```
-
-### 4. **Visual Elements**
-
-- **Badges**: Show project status, version, license
-- **Diagrams**: ASCII art or images for architecture/wiring
-- **Tables**: Organize specifications and configurations
-- **Icons/Emojis**: Improve scannability (use sparingly)
-
-### 5. **Writing Guidelines**
-
-| Do ✅ | Don't ❌ |
-|-------|---------|
-| Use clear, concise language | Use jargon without explanation |
-| Write in present tense | Mix tenses inconsistently |
-| Include examples | Leave steps ambiguous |
-| Keep paragraphs short | Write walls of text |
-| Update when code changes | Let documentation become stale |
-
-### 6. **README Quality Checklist**
-
-- [ ] Can a new developer set up the project in under 30 minutes?
-- [ ] Are all prerequisites clearly listed?
-- [ ] Are configuration options documented?
-- [ ] Is there a quick start guide?
-- [ ] Are common errors addressed?
-- [ ] Is the code structure explained?
-- [ ] Are contribution guidelines included?
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions to the PiliSeed Hardware project!
@@ -765,49 +631,15 @@ We welcome contributions to the PiliSeed Hardware project!
 4. **Push** to the branch (`git push origin feature/AmazingFeature`)
 5. **Open** a Pull Request
 
-### Code Style Guidelines
-
-- Use meaningful variable and function names
-- Comment complex logic
-- Follow existing code formatting
-- Test thoroughly before submitting
-
 ### Reporting Issues
 
 Please include:
+
 - Device/board model
 - Arduino IDE version
 - Library versions
 - Serial monitor output
 - Steps to reproduce
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-
-MIT License
-
-Copyright (c) 2025 PiliSeed Team
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-
-```
 
 ---
 
@@ -827,7 +659,6 @@ For support, please:
 
 1. Check the [Troubleshooting](#-troubleshooting) section
 2. Review existing GitHub Issues
-3. Contact the PiliSeed team through the mobile application
 
 ---
 
@@ -835,7 +666,7 @@ For support, please:
 
 **🌱 PiliSeed - Growing Smarter, Together 🌱**
 
-*Empowering farmers with AI-driven agricultural insights*
+_Empowering farmers with AI-driven agricultural insights_
 
 </div>
 ```
