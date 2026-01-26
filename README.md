@@ -669,4 +669,3 @@ For support, please:
 _Empowering farmers with AI-driven agricultural insights_
 
 </div>
-```
