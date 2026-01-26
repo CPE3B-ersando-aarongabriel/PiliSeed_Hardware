@@ -1,0 +1,28 @@
+/*******************************************************
+ * PiliSeed Hardware Configuration Template
+ * 
+ * Instructions:
+ * 1. Copy this file and rename it to 'config.h'
+ * 2. Fill in your actual credentials below
+ * 3. The config.h file is gitignored for security
+ * 
+ * ⚠️  Never commit config.h with real credentials!
+ *******************************************************/
+
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// >>>>> WiFi Credentials <<<<<
+// Replace with your actual WiFi network name and password
+#define WIFI_SSID "your_wifi_ssid"
+#define WIFI_PASSWORD "your_wifi_password"
+
+// >>>>> PiliSeed API Configuration <<<<<
+// Backend server URL (do not include trailing slash)
+#define BACKEND_URL "https://piliseed.onrender.com"
+
+// Your unique sensor ID from PiliSeed backend
+// Obtain this from the PiliSeed mobile app or backend admin
+#define SENSOR_ID "your_sensor_id_here"
+
+#endif // CONFIG_H
